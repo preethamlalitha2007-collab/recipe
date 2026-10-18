@@ -1,68 +1,489 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preetham's Website</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #141e30, #493b75, #b83280);
-      color: white;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card {
-      width: 80%;
-      max-width: 500px;
-      padding: 35px 20px;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      font-size: 36px;
-    }
-
-    p {
-      line-height: 1.7;
-    }
-
-    button {
-      background: white;
-      color: #493b75;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bangara ❤️</title>
+<style>
+:root {
+  --pink: #ff5c93;
+  --deep: #b52d65;
+  --soft: #fff0f5;
+  --cream: #fffafc;
+  --text: #603044;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #fff0f6, #fffafd 45%, #ffe8f1);
+  overflow-x: hidden;
+}
+button { font: inherit; cursor: pointer; }
+.hero {
+  min-height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 65px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 15%, #ffd2e3 0, transparent 38%),
+    radial-gradient(ellipse at 90% 80%, #ffc5da 0, transparent 40%),
+    linear-gradient(145deg, #fff8fb, #ffe5ef);
+}
+.hero-content { max-width: 760px; position: relative; z-index: 1; }
+.eyebrow {
+  color: var(--deep);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font: 12px Arial, sans-serif;
+}
+h1 {
+  color: var(--deep);
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  line-height: 1;
+  margin: 24px 0;
+  text-shadow: 0 5px 30px #f7a6c766;
+}
+h2 { color: var(--deep); font-size: clamp(2rem, 6vw, 3rem); }
+.hero p { font-size: 1.15rem; line-height: 1.8; }
+.button {
+  border: 0;
+  background: linear-gradient(135deg, #ff6a9c, #d83b78);
+  color: white;
+  padding: 14px 23px;
+  border-radius: 30px;
+  margin: 8px 5px;
+  box-shadow: 0 8px 20px #d83b7830;
+  transition: transform .2s;
+}
+.button:hover { transform: translateY(-2px); }
+.button.secondary {
+  color: var(--deep);
+  background: white;
+  border: 1px solid #f6b2cb;
+}
+.heart {
+  position: absolute;
+  bottom: -50px;
+  opacity: .55;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  to { transform: translateY(-115vh) rotate(30deg); opacity: 0; }
+}
+section { padding: 75px 20px; }
+.container { max-width: 1050px; margin: auto; }
+.section-heading { text-align: center; margin-bottom: 36px; }
+.section-heading p { line-height: 1.8; }
+.card {
+  background: #ffffffd9;
+  border: 1px solid #f9d4e2;
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 12px 35px #9c345010;
+}
+.intro { text-align: center; line-height: 1.9; font-size: 1.08rem; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.photo-card {
+  background: white;
+  padding: 10px 10px 18px;
+  border-radius: 17px;
+  box-shadow: 0 10px 28px #9c345018;
+  transform: rotate(-1deg);
+}
+.photo-card:nth-child(even) { transform: rotate(1deg); }
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 11px;
+  background: #ffe0eb;
+}
+.photo-card p { text-align: center; margin: 15px 5px 0; }
+.quiz-card { max-width: 650px; margin: auto; text-align: center; }
+.answers { display: grid; gap: 12px; margin: 22px 0; }
+.answer {
+  background: #fff7fa;
+  border: 1px solid #f5bfd2;
+  color: var(--text);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: left;
+}
+.answer:hover { background: #ffe4ee; }
+.answer:disabled { cursor: default; opacity: .8; }
+#quizFeedback { min-height: 50px; line-height: 1.7; }
+.reveal {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ffedf4, #fff);
+  border-radius: 25px;
+}
+#birthdayMessage { display: none; }
+#birthdayMessage.show { display: block; animation: appear .8s ease both; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.letter {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.08rem;
+  line-height: 2;
+  white-space: normal;
+}
+.letter p { margin-bottom: 20px; }
+.signature { color: var(--deep); font-size: 1.3rem; }
+footer { text-align: center; padding: 35px 15px; color: #9c456a; }
+.small { font: 13px Arial, sans-serif; color: #96506b; }
+@media (max-width: 500px) {
+  section { padding: 55px 15px; }
+  .photo-card img { height: 250px; }
+}
+</style>
 </head>
-
 <body>
-  <div class="card">
-    <h1>Welcome! 👋</h1>
-    <p>Hi, I'm Preetham.</p>
-    <p>This is my very first website, created by me!</p>
-    <button onclick="showMessage()">Click Me ✨</button>
-    <p id="message"></p>
-  </div>
 
-  <script>
-    function showMessage() {
-      document.getElementById("message").textContent =
-        "Thank you for visiting my website! ❤️";
-    }
-  </script>
-</body>
-</html>
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A little world made just for you</div>
+    <h1>Happy Birthday,<br>Bangara ❤️</h1>
+    <p>
+      To my favourite person, my sweetest thought, and the girl
+      who holds such a special place in my heart.
+    </p>
+    <button class="button" onclick="document.getElementById('welcome').scrollIntoView()">
+      Open your surprise 💌
+    </button>
+    <p class="small">Made with love, just for you 🌷</p>
+  </div>
+</header>
+
+<section id="welcome">
+  <div class="container card intro">
+    <h2>Hey, my Bangara 🌹</h2>
+    <p>
+      Today is all about you. I wanted to give you something more than
+      a message on a screen — a tiny place filled with love, memories,
+      smiles, and the words my heart sometimes struggles to say.
+    </p>
+    <p>
+      Take your time, explore every little surprise, and remember that
+      you deserve happiness, peace, laughter, and all the beautiful
+      things life has waiting for you.
+    </p>
+    <a href="#memories"><button class="button">Our little memories 📸</button></a>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Little moments, big feelings</div>
+      <h2>Our Memory Garden 🌸</h2>
+      <p>Every picture holds a moment worth keeping close.</p>
+    </div>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="photos/photo1.jpg" alt="Our first memory"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <p style="display:none">Add your first photo as photos/photo1.jpg</p>
+        <p>One of my favourite memories ❤️</p>
+      </div>
+      <div class="photo-card">
+        <img src="photos/photo2.jpg" alt="A special moment together"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <p style="display:none">Add your second photo as photos/photo2.jpg</p>
+        <p>A moment I want to remember 🌷</p>
+      </div>
+      <div class="photo-card">
+        <img src="photos/photo3.jpg" alt="A happy memory"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <p style="display:none">Add your third photo as photos/photo3.jpg</p>
+        <p>A little piece of happiness ✨</p>
+      </div>
+      <div class="photo-card">
+        <img src="photos/photo4.jpg" alt="Another memory together"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <p style="display:none">Add an optional fourth photo as photos/photo4.jpg</p>
+        <p>And many more memories to come 💗</p>
+      </div>
+    </div>
+    <p class="small" style="text-align:center;margin-top:22px">
+      Your photos will appear here after you upload them to the photos folder.
+    </p>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">A little game for my favourite girl</div>
+      <h2>Our Love Quiz 💞</h2>
+      <p>No pressure, no marks — just a few sweet questions.</p>
+    </div>
+    <div class="card quiz-card">
+      <p id="questionCount" class="small">Question 1 of 4</p>
+      <h3 id="question">Ready, Bangara?</h3>
+      <div id="answers" class="answers"></div>
+      <p id="quizFeedback" aria-live="polite"></p>
+      <button id="nextQuestion" class="button" style="display:none" onclick="nextQuestion()">
+        Next question 💗
+      </button>
+      <button id="restartQuiz" class="button secondary" style="display:none" onclick="startQuiz()">
+        Play again
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="surprise">
+  <div class="container reveal">
+    <div class="eyebrow">One last little surprise</div>
+    <h2>Ready for your birthday wish? 🎁</h2>
+    <p>Take a deep breath and tap the button, birthday girl.</p>
+    <button class="button" onclick="revealBirthday()">Reveal my surprise ✨</button>
+    <div id="birthdayMessage">
+      <h2>HAPPIEST BIRTHDAY, BANGARA! 🎂💗</h2>
+      <p style="font-size:1.15rem;line-height:1.9">
+        May your days be full of genuine smiles, your heart feel safe and
+        loved, and your dreams bring you closer to the life you wish for.
+        May you always remember how precious you are.
+      </p>
+      <p>Today, tomorrow, and in every new chapter — I wish you happiness. 🌹</p>
+      <div style="font-size:2rem">💗 🌸 💗 🌸 💗</div>
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">From my heart to yours</div>
+      <h2>A Letter for My Bangara 💌</h2>
+    </div>
+    <article class="card letter">
+      <p>My dearest Bangara, ❤️</p>
+
+      <p>
+        Happiest birthday to the girl who means so much to me. If I could
+        give you one thing today, it would be the ability to see yourself
+        through my eyes for even a moment. Maybe then you would understand
+        how special you are, how much your happiness matters, and how
+        someone can become such a beautiful part of another person's world.
+      </p>
+
+      <p>
+        I don't know if words will ever be enough to explain everything I
+        feel, but I still want to try. You are not just a name that appears
+        on my phone or someone I think about during the day. You are someone
+        whose happiness I genuinely wish for, whose dreams I want to see
+        grow, and whose smile can make an ordinary moment feel special.
+      </p>
+
+      <p>
+        On your birthday, I hope you remember that you deserve kindness
+        even on the days when you don't feel your strongest. You deserve
+        to be listened to, understood, respected, and appreciated. You
+        deserve to chase your dreams without being afraid of how far they
+        may take you. Never make yourself smaller just to fit into the
+        expectations of the world. Keep that beautiful part of you that
+        makes you who you are.
+      </p>
+
+      <p>
+        I know that life is not always simple. Sometimes family
+        expectations, responsibilities, uncertainty, and circumstances
+        can make things difficult. We cannot control every situation, and
+        we may not always have the answers we wish we had. But I hope we
+        can face difficult moments with patience, honesty, understanding,
+        and respect for one another. I never want love to feel like a
+        burden or a reason for you to lose your peace. Your feelings,
+        your family, your dreams, and your happiness matter.
+      </p>
+
+      <p>
+        If we ever have a difficult day, I hope we remember to listen
+        before judging, speak gently instead of hurting each other, and
+        give each other room to breathe when it is needed. I know that
+        neither of us is perfect. What matters is learning, growing, and
+        choosing kindness whenever we can. I want the people we become
+        to be better because of the things we learn along the way.
+      </p>
+
+      <p>
+        Bangara, thank you for the smiles, the conversations, the little
+        moments, and the memories that have found a place in my heart.
+        Even the simplest moments can become precious when they are
+        connected to someone who matters. When I look at our photos, I
+        hope I remember not only how those moments looked, but how they
+        made me feel.
+      </p>
+
+      <p>
+        I cannot promise that life will always be easy or that every
+        chapter will happen exactly as we imagine. What I can do is keep
+        learning how to communicate better, appreciate the people I love,
+        and become someone who treats your heart with care. I hope we
+        continue to encourage each other's goals, celebrate each other's
+        achievements, and make room for laughter even when life feels
+        heavy.
+      </p>
+
+      <p>
+        Today, I wish you more than birthday wishes and pretty pictures.
+        I wish you good health, peaceful nights, exciting opportunities,
+        confidence in yourself, success in everything you work for, and
+        people who remind you of your worth. I hope the coming year brings
+        you unexpected happiness, new experiences, and countless reasons
+        to smile. When something wonderful happens to you, I hope you
+        celebrate it proudly, because you deserve to be proud of yourself.
+      </p>
+
+      <p>
+        And when a day doesn't go the way you planned, please be gentle
+        with yourself. One difficult day cannot define your future. One
+        mistake cannot erase your goodness. You are allowed to learn, to
+        change your mind, to grow, and to begin again. I hope you always
+        have the courage to choose what is right for you and the strength
+        to keep believing in your dreams.
+      </p>
+
+      <p>
+        If I could wrap up all my wishes for you and place them in a
+        little box, it would be filled with peace, courage, warmth,
+        laughter, beautiful memories, and the reminder that you are
+        worthy of genuine love and respect. Since I cannot put all of
+        those things inside a box, I made this small website instead.
+        Every part of it is a little reminder that I wanted to make
+        your birthday feel personal and memorable.
+      </p>
+
+      <p>
+        Happy birthday once again, my Bangara. Keep smiling, keep dreaming,
+        keep growing, and keep being wonderfully yourself. Whatever this
+        next year brings, I hope it brings you closer to the happiest,
+        strongest, and most confident version of you.
+      </p>
+
+      <p>
+        You will always have a special place in my memories and in the
+        story I carry in my heart. Thank you for being you. I hope this
+        little surprise makes you smile today, just as the thought of
+        making it for you made me smile.
+      </p>
+
+      <p class="signature">
+        With all my love and warmest birthday wishes,<br>
+        Your person ❤️🌹
+      </p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  Made with a little code and a whole lot of love 💗<br>
+  <span class="small">For Bangara, on her special day 🌸</span>
+</footer>
+
+<script>
+const quiz = [
+  {
+    question: "What makes a memory truly special?",
+    answers: ["The feeling it leaves in our hearts", "How expensive it was", "How perfect it looked", "How many people saw it"],
+    correct: 0,
+    message: "Exactly! Sometimes the smallest moments stay with us the longest. 💗"
+  },
+  {
+    question: "What is one beautiful thing love can teach us?",
+    answers: ["To control someone", "To stop having dreams", "To listen and understand", "To never say sorry"],
+    correct: 2,
+    message: "Yes! Real care makes room for understanding, kindness, and growth. 🌷"
+  },
+  {
+    question: "What do you deserve every single day?",
+    answers: ["Pressure to be perfect", "Respect, kindness, and happiness", "Fear of making mistakes", "To hide your dreams"],
+    correct: 1,
+    message: "Always remember that, Bangara. You deserve to be treated with care. ❤️"
+  },
+  {
+    question: "What is my birthday wish for you?",
+    answers: ["A year without any change", "A life where you never dream", "A perfect life with no challenges", "A year filled with joy, growth, and love"],
+    correct: 3,
+    message: "That's my wish for you — a beautiful year ahead, filled with reasons to smile! 🎂"
+  }
+];
+
+let current = 0;
+let locked = false;
+
+function renderQuestion() {
+  locked = false;
+  const q = quiz[current];
+  document.getElementById("questionCount").textContent =
+    "Question " + (current + 1) + " of " + quiz.length;
+  document.getElementById("question").textContent = q.question;
+  document.getElementById("quizFeedback").textContent = "";
+  document.getElementById("nextQuestion").style.display = "none";
+  document.getElementById("restartQuiz").style.display = "none";
+
+  const area = document.getElementById("answers");
+  area.innerHTML = "";
+  q.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.className = "answer";
+    button.textContent = answer;
+    button.onclick = () => chooseAnswer(index);
+    area.appendChild(button);
+  });
+}
+
+function chooseAnswer(index) {
+  if (locked) return;
+  locked = true;
+  document.querySelectorAll(".answer").forEach(button => button.disabled = true);
+  document.getElementById("quizFeedback").textContent =
+    quiz[current].message;
+  if (current < quiz.length - 1) {
+    document.getElementById("nextQuestion").style.display = "inline-block";
+  } else {
+    document.getElementById("question").textContent = "You finished the quiz, Bangara! 💖";
+    document.getElementById("questionCount").textContent = "Love quiz complete!";
+    document.getElementById("restartQuiz").style.display = "inline-block";
+  }
+}
+
+function nextQuestion() {
+  current++;
+  renderQuestion();
+}
+
+function startQuiz() {
+  current = 0;
+  renderQuestion();
+}
+
+function revealBirthday() {
+  document.getElementById("birthdayMessage").classList.add("show");
+  document.getElementById("birthdayMessage").scrollIntoView({
+    behavior: "smooth", block: "center"
+  });
+}
+
+function createHeart() {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.textContent = ["♥️", "♡", "💗", "🌸"][Math.floor(Math.random() * 4)];
+  heart.style
