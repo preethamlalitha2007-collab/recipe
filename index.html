@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preetham's Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #141e30, #493b75, #b83280);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 80%;
+      max-width: 500px;
+      padding: 35px 20px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    button {
+      background: white;
+      color: #493b75;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Welcome! 👋</h1>
+    <p>Hi, I'm Preetham.</p>
+    <p>This is my very first website, created by me!</p>
+    <button onclick="showMessage()">Click Me ✨</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "Thank you for visiting my website! ❤️";
+    }
+  </script>
+</body>
+</html>
